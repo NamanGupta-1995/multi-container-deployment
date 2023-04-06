@@ -11,3 +11,11 @@ after_success:
   - docker build -t naman201995/multi-nginx ./nginx
   - docker build -t naman201995/multi-server ./server
   - docker build -t naman201995/multi-worker ./worker
+  # Login to Docker CLI
+  - echo "$Docker_Pass" | docker login -u "Docker_ID" --password-stdin
+  #Push the images to Docker Hub
+  - docker push naman201995/multi-client
+  - docker push naman201995/multi-nginx
+  - docker push naman201995/multi-server
+  - docker push naman201995/multi-worker
+
